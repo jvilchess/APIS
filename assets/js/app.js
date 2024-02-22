@@ -2,7 +2,7 @@ const input = document.querySelector("input")
 const monedaSelected = document.getElementById("moneda")
 const btn = document.querySelector("button")
 const span = document.querySelector("span")
-const span1 = document.querySelector("span1")
+const span1 =document.getElementById("span1")
 
 let miGrafico = null
 
@@ -24,11 +24,15 @@ const calculo = async () => {
     if (monedaSelected.value==`dolar`)
     {
       span.innerHTML = `$` + resultado
+      span1.style.fontSize="15px"
+      span1.innerHTML= "Valor del Dolar $" + monedas.serie[0].valor
     }
 
-    elif (monedaSelected.value==`euro`)
+    else
     {
       span.innerHTML = `€` + resultado
+      span1.innerHTML= "Valor del Euro €" + monedas.serie[0].valor
+      span1.style.fontSize="15px"
     }
 
 }
