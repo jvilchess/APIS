@@ -1,13 +1,14 @@
-const input = document.querySelector("input");
+const input = document.querySelector("input")
 const monedaSelected = document.getElementById("moneda")
-const btn = document.querySelector("button");
-const span = document.querySelector("span");
+const btn = document.querySelector("button")
+const span = document.querySelector("span")
+const span1 = document.querySelector("span1")
 
 let miGrafico = null
 
 const getMonedas = async () => {
     try {
-        const response = await fetch(`https://mindicador.cl/api/${monedaSelected.value}`);
+        const response = await fetch(`https://mindicador.cl/api/${monedaSelected.value}`)
         const monedas = await response.json()
         return monedas
     } catch (error) {
@@ -18,7 +19,18 @@ const getMonedas = async () => {
 const calculo = async () => {
     const monedas = await getMonedas()
     const calcular = parseInt(input.value) / monedas.serie[0].valor
-    span.innerHTML = `${calcular.toFixed(2)} ${monedaSelected.value}`
+    resultado=calcular.toFixed(2)
+   
+    if (monedaSelected.value==`dolar`)
+    {
+      span.innerHTML = `$` + resultado
+    }
+
+    elif (monedaSelected.value==`euro`)
+    {
+      span.innerHTML = `€` + resultado
+    }
+
 }
 
   const configuraciongrafico = (monedas) => {
