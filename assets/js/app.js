@@ -31,7 +31,7 @@ const calculo = async () => {
     else
     {
       span.innerHTML = `€` + resultado
-      span1.innerHTML= "Valor del Euro €" + monedas.serie[0].valor
+      span1.innerHTML= "Valor del Euro $" + monedas.serie[0].valor
       span1.style.fontSize="15px"
     }
 
